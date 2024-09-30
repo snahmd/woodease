@@ -1,9 +1,29 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Products from "./pages/Products";
+import ProductDetail from "./pages/ProductDetail";
 function App() {
-  return (
-    <>
-      <h1 className="text-3xl font-bold underline">WOODEASE</h1>
-    </>
-  );
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Home />,
+    },
+    {
+      path: "/about",
+      element: <About />,
+    },
+    {
+      path: "/products",
+      element: <Products />,
+    },
+    {
+      path: "/product/:id",
+      element: <ProductDetail />,
+    },
+  ]);
+
+  return <RouterProvider router={router} />;
 }
 
 export default App;
